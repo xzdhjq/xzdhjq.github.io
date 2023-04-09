@@ -860,13 +860,14 @@ lazyload:
 # PWA
 # See https://github.com/JLHwung/hexo-offline
 # ---------------
-# pwa:
-#   enable: false
-#   manifest: /pwa/manifest.json
-#   apple_touch_icon: /pwa/apple-touch-icon.png
-#   favicon_32_32: /pwa/32.png
-#   favicon_16_16: /pwa/16.png
-#   mask_icon: /pwa/safari-pinned-tab.svg
+ pwa:
+   enable: true
+   manifest: /manifest.json
+   theme_color: "#f8f5f6"
+   apple_touch_icon: /img/siteicon/96.png
+   favicon_32_32: /img/siteicon/32.png
+   favicon_16_16: /img/siteicon/16.png
+   mask_icon: /img/siteicon/96.png
 
 # Open graph meta tags
 # https://developers.facebook.com/docs/sharing/webmasters/
@@ -889,7 +890,7 @@ css_prefix: true
 # 插入代码到头部 </head> 之前 和 底部 </body> 之前
 inject:
   head:
-    # - <link rel="stylesheet" href="/xxx.css">
+    - <link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'">
   bottom:
     # - <script src="xxxx"></script>
 
@@ -969,3 +970,64 @@ CDN:
     # artalk_js:
     # artalk_css:
     # busuanzi:
+
+# hexo-butterfly-swiper-anzhiyu
+# see https://akilar.top/posts/8e1264d1/
+swiper:
+  enable: true # 开关
+  randomenable: true # 人潮汹涌开关
+  priority: 5 #过滤器优先权
+  enable_page: / # 应用页面
+  timemode: date #date/updated
+  layout: # 挂载容器类型
+    type: id
+    name: recent-posts
+    index: 1
+  default_descr: 再怎么看我也不知道怎么描述它的啦！
+  swiper_css: https://cdn.cbd.int/hexo-butterfly-swiper-anzhiyu@1.0.4/lib/swiper.min.css #swiper css依赖
+  swiper_js: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/js/swiper.min.js #swiper js依赖 #swiper js依赖
+  custom_css: https://cdn.cbd.int/hexo-butterfly-swiper-anzhiyu@1.0.4/lib/swiperstyle.css # 适配主题样式补丁
+  custom_js: https://cdn.cbd.int/hexo-butterfly-swiper-anzhiyu@1.0.4/lib/swiper_init.js # swiper初始化方法
+  gsap_js: https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/gsap/3.9.1/gsap.min.js
+  people_js: https://npm.elemecdn.com/hexo-butterfly-swiper-anzhiyu@1.0.4/lib/people.min.js
+
+# hexo-butterfly-categories-card
+# see https://akilar.top/posts/a9131002/
+categoryBar:
+  enable: true # 开关
+  priority: 5 #过滤器优先权
+  enable_page: / # 应用页面
+  layout: # 挂载容器类型
+    type: id
+    name: recent-posts
+    index: 0
+  column: odd # odd：3列 | even：4列
+  row: 1 #显示行数，默认两行，超过行数切换为滚动显示
+  message:
+    - descr: 大学学习史
+      cover: https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover1.webp
+    - descr: 前端成长历程
+      cover: https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover2.webp
+    - descr: 生活欢乐多
+      cover: https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover3.webp
+    - descr:
+      cover: https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover4.webp
+    - descr:
+      cover: https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover5.webp
+    - descr:
+      cover: https://cdn.cbd.int/akilar-candyassets@1.0.36/image/cover6.webp
+  custom_css: https://cdn.cbd.int/hexo-butterfly-categories-card@1.0.0/lib/categorybar.css
+
+# fcircle
+# see https://akilar.top/posts/62f13a97/
+fcircle:
+  enable: true #控制开关
+  apiurl: https://hexo-friendcircle-api-ai9d4hwad-anzhiyu-c.vercel.app/api #api地址
+  initnumber: 20 #【可选】页面初始化展示文章数量
+  stepnumber: 10 #【可选】每次加载增加的篇数
+  css: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/css/friend.min.css #【可选】开发者接口，自定义css链接
+  js: https://npm.elemecdn.com/anzhiyu-blog@1.1.6/js/fcircle.min.js #【可选】开发者接口，自定义js链接
+  path: #【可选】fcircle的路径名称。默认为 fcircle，生成的页面为 fcircle/index.html
+  front_matter: #【可选】fcircle页面的 front_matter 配置
+    title: 朋友圈
+    comments: false
